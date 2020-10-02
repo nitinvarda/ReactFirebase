@@ -21,7 +21,7 @@ const Signin = () => {
                 })
             }
         })
-    }, [])
+    }, [isAuthenticated])
     const { email, password } = data;
 
     const change = (e) => {
