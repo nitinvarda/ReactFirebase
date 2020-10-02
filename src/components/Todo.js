@@ -107,7 +107,7 @@ const Todo = () => {
             <div style={{ width: "50%", margin: 'auto', textAlign: 'center' }}>
                 <h1>You are not Logged in</h1>
 
-                <p>Already a user? Please <Link to="/login">Login</Link> or <Link to="/signup" >Signup</Link></p>
+                <h6>Already a user? Please <Link to="/login">Login</Link> or <Link to="/signup" >Signup</Link></h6>
 
             </div>
         )
