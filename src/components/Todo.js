@@ -67,7 +67,7 @@ const Todo = () => {
             <div>
                 <div className="welcome">
                     <div>
-                        <h3>Welcome ,  {user}</h3>
+                        <h5>Welcome ,  {user}</h5>
                     </div>
                     <Button className="logout-btn" variant="contained" size="small" color="secondary" onClick={logout}>Logout</Button>
                 </div>
@@ -89,7 +89,7 @@ const Todo = () => {
                         return (
                             <React.Fragment key={todo.id}>
                                 <li className="todo-body" data-id={todo.id} >
-                                    <h3 style={{ width: '50%' }}>{todo.todo}</h3>
+                                    <h5 style={{ width: '50%' }}>{todo.todo}</h5>
                                     {/* <button className="btn btn-danger del-btn" onClick={del} >delete</button> */}
                                     <Button className="del-btn" variant="contained" size="small" color="secondary" onClick={del} >Delete</Button>
 
