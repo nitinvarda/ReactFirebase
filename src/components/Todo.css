@@ -1,0 +1,6 @@
+.add-todo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
