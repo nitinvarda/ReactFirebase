@@ -1,6 +1,47 @@
+
+.welcome{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 .add-todo{
     display: flex;
     flex-direction: row;
     justify-content: center;
     
+}
+.todo-body{
+    width: 70%;
+    height: 80px;
+    margin:auto;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.del-btn{
+    height: 35px;
+    
+}
+@media only screen and (max-width: 1024px){
+    .todo-body{
+        width: 80%;
+    }
+
+}
+
+@media only screen and (max-width: 600px){
+    .welcome{
+        flex-direction: column;
+    }
+    .logout-btn{
+        width: 25%;
+    }
+    .todo-body{
+        width: 100%;
+    }
+
+
 }

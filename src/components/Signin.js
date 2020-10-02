@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { auth } from '../Firebase';
 import { TextField, Button } from '@material-ui/core';
+import './Signin.css';
 const Signin = () => {
     const [data, setData] = useState({
         email: '',
@@ -64,12 +65,12 @@ const Signin = () => {
         )
     }
     return (
-        <div style={{ width: "50%", margin: "auto" }}>
+        <div className="login-form-start">
             {error ? (<p>{error}</p>) : (<p></p>)}
             <h5 style={{ textAlign: 'center' }}>This is Login page</h5>
             <br />
             <form onSubmit={login}>
-                <div className="d-flex flex-column justify-content-around" style={{ width: "30%", margin: "auto" }}>
+                <div className="login-form" >
 
                     <TextField type="text" name="email" value={email} onChange={change} variant="outlined" label="emailId" size="small" required />
                     <br />

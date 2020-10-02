@@ -1,0 +1,25 @@
+
+.login-form-start{
+    width: 50%;
+    margin: auto;
+}
+
+.login-form{
+    width: 45%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+@media only screen and (max-width: 600px){
+    .login-form-start{
+        width: 90%;
+    }
+    .login-form{
+        width: 90%;
+    }
+
+
+}

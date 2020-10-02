@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { auth } from '../Firebase';
 import { TextField, Button } from '@material-ui/core';
+import './Signin.css';
 const Signup = () => {
     const [data, setData] = useState({
         email: '',
@@ -32,12 +33,12 @@ const Signup = () => {
     }
 
     return (
-        <div style={{ width: "50%", margin: "auto" }}>
+        <div className="login-form-start">
             {error ? (<p>{error}</p>) : (<p></p>)}
             <h5 style={{ textAlign: 'center' }}>This is Signup page</h5>
             <br />
             <form onSubmit={signup}>
-                <div className="d-flex flex-column justify-content-around" style={{ width: "30%", margin: "auto" }}>
+                <div className="login-form">
 
                     <TextField type="text" name="email" value={email} onChange={change} variant="outlined" label="emailId" size="small" required />
                     <br />

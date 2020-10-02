@@ -23,8 +23,8 @@ const Todo = () => {
                 })
 
                 db.collection(user.email).orderBy("timestamp", "desc").onSnapshot(snapshot => {
-                    // console.log(snapshot.docs.map(doc => doc))
-                    // console.log(snapshot.docs.map(doc => ({ id: doc.id, todo: doc.data().todo })))
+                    console.log(snapshot.docs.map(doc => doc))
+                    console.log(snapshot.docs.map(doc => ({ id: doc.id, todo: doc.data().todo })))
                     setTodos(snapshot.docs.map(doc => ({ id: doc.id, todo: doc.data().todo })))
                 })
 
@@ -38,7 +38,7 @@ const Todo = () => {
     }
     const add = (e) => {
         e.preventDefault();
-        db.collection(`${user}`).add({
+        db.collection(user).add({
             todo: todo,
             time: new Date().toLocaleTimeString(),
             date: new Date().toLocaleDateString(),
@@ -47,8 +47,10 @@ const Todo = () => {
         setTodo('')
 
     }
+
     const del = (e) => {
-        db.collection(`${user}`).doc(e.target.id).delete()
+
+        db.collection(user).doc(e.currentTarget.parentElement.getAttribute('data-id')).delete()
     }
     const logout = (e) => {
         auth.signOut().then(res => {
@@ -63,11 +65,11 @@ const Todo = () => {
 
         return (
             <div>
-                <div className="d-flex justify-content-around">
+                <div className="welcome">
                     <div>
                         <h3>Welcome ,  {user}</h3>
                     </div>
-                    <Button variant="contained" size="small" color="secondary" onClick={logout}>Logout</Button>
+                    <Button className="logout-btn" variant="contained" size="small" color="secondary" onClick={logout}>Logout</Button>
                 </div>
                 <hr />
                 <div className="add-todo">
@@ -85,11 +87,15 @@ const Todo = () => {
                 <div>
                     {todos.map((todo) => {
                         return (
-                            <div key={todo.id} className="d-flex justify-content-around" style={{ width: "70%", margin: 'auto', marginBottom: 15 }}>
-                                <h3 style={{ width: '50%' }}>{todo.todo}</h3>
-                                <Button variant="contained" size="small" color="secondary" onClick={del} id={todo.id}>Delete</Button>
+                            <React.Fragment key={todo.id}>
+                                <li className="todo-body" data-id={todo.id} >
+                                    <h3 style={{ width: '50%' }}>{todo.todo}</h3>
+                                    {/* <button className="btn btn-danger del-btn" onClick={del} >delete</button> */}
+                                    <Button className="del-btn" variant="contained" size="small" color="secondary" onClick={del} >Delete</Button>
 
-                            </div>
+                                </li>
+                                <hr />
+                            </React.Fragment>
                         )
                     })}
                 </div>
